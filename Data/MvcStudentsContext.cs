@@ -13,4 +13,6 @@ using MvcStudent.Models;
         }
 
         public DbSet<MvcStudent.Models.Student> Student { get; set; }
+
+        public DbSet<MvcStudent.Models.GiaoVien> GiaoVien { get; set; }
     }

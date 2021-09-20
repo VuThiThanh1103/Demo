@@ -1,19 +1,19 @@
-@model MvcStudent.Models.Student
+@model MvcStudent.Models.GiaoVien
 
 @{
     ViewData["Title"] = "Delete";
 }
 
 <h1> Xóa Dữ Liệu</h1>
-
 <div>
+    <h4>GiaoVien</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.StudentName)
+            @Html.DisplayNameFor(model => model.TenGV)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.StudentName)
+            @Html.DisplayFor(model => model.TenGV)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.NamSinh)
@@ -30,8 +30,8 @@
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="IdStudent" />
-        <input type="submit" value="Xóa" class="btn btn-danger" /> |
+        <input type="hidden" asp-for="MaGV" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>
 </div>

@@ -1,10 +1,10 @@
-@model IEnumerable<MvcStudent.Models.Student>
+@model IEnumerable<MvcStudent.Models.GiaoVien>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h2>Học Sinh</h2
+<h1>Giáo Viên</h1>
 
 <p>
     <a asp-action="Create">Tạo Mới Dữ Liệu</a>
@@ -13,10 +13,10 @@
     <thead>
         <tr>
             <th>
-                <label>Mã Học Sinh</label>
+                <label>Mã Giáo Viên</label>
             </th>
             <th>
-                <label>Tên Học Sinh</label>
+                <label>Họ Tên Giáo Viên</label>
             </th>
             <th>
                 <label>Năm Sinh</label>
@@ -31,10 +31,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.IdStudent)
+                @Html.DisplayFor(modelItem => item.MaGV)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.StudentName)
+                @Html.DisplayFor(modelItem => item.TenGV)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.NamSinh)
@@ -43,8 +43,8 @@
                 @Html.DisplayFor(modelItem => item.DiaChi)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdStudent">Sửa</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdStudent">Xóa</a>
+                <a asp-action="Edit" asp-route-id="@item.MaGV">Sửa</a> |
+                <a asp-action="Delete" asp-route-id="@item.MaGV">Xóa</a>
             </td>
         </tr>
 }
