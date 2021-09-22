@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MvcStudent.Models;
+using MvcStudent.Data;
+
 
 namespace demo.Controllers
 {
