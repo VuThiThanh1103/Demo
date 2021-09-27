@@ -4,8 +4,13 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Học Sinh</h2
-
+<h2>Học Sinh</h2>
+<form asp-controller="Students" asp-action="Index">
+    <p>
+        Tìm kiếm: <input type="text" name="SearchString" />
+        <input type="submit" value="Done" />
+    </p>
+</form>
 <p>
     <a asp-action="Create">Tạo Mới Dữ Liệu</a>
 </p>
