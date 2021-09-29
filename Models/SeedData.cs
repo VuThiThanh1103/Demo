@@ -26,7 +26,8 @@ namespace MvcStudent.Models
                         IdStudent = 1103,
                         StudentName = "Vũ Thị Thanh",
                         NamSinh = DateTime.Parse("2000-06-29"),
-                        DiaChi = "Nam Định"
+                        DiaChi = "Nam Định",
+                        Email  = "vuthanh2906@gmail.com"
                     },
 
                     new Student
@@ -34,7 +35,8 @@ namespace MvcStudent.Models
                         IdStudent = 0668,
                         StudentName ="Nguyễn Thị Hương",
                         NamSinh = DateTime.Parse("2000-08-14"),
-                        DiaChi = "Hà Nam"
+                        DiaChi = "Hà Nam",
+                        Email  = "huongnguyen@gmail.com"
                     },
 
                     new Student
@@ -42,7 +44,8 @@ namespace MvcStudent.Models
                         IdStudent = 0578,
                         StudentName ="Hoàng Hải Yến",
                         NamSinh = DateTime.Parse("2000-09-25"),
-                        DiaChi = "Quảng Ninh"
+                        DiaChi = "Quảng Ninh",
+                        Email  = "haiyen@gmail.com"
                     },
 
                     new Student
@@ -50,7 +53,8 @@ namespace MvcStudent.Models
                         IdStudent = 0975,
                         StudentName ="Phạm Tiến Đạt",
                         NamSinh = DateTime.Parse("1999-01-05"),
-                        DiaChi = "Ninh Bình"
+                        DiaChi = "Ninh Bình",
+                        Email  = "tiendat@gmail.com"
                     }
                 );
                 context.SaveChanges();

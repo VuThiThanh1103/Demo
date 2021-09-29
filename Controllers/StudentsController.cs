@@ -21,17 +21,32 @@ namespace demo.Controllers
         }
 
         // GET: Students
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index( string StudentGenre,string searchString)
         {
+            IQueryable<string> genreQuery = from m in _context.Student
+                                    orderby m.DiaChi
+                                    select m.DiaChi;
+
             var students = from m in _context.Student
                         select m;
 
-            if (!String.IsNullOrEmpty(searchString))
+            if (!string.IsNullOrEmpty(searchString))
             {
                 students = students.Where(s => s.StudentName.Contains(searchString));
             }
 
-            return View(await students.ToListAsync());
+            if (!string.IsNullOrEmpty(StudentGenre))
+            {
+                students = students.Where(x => x.DiaChi == StudentGenre);
+            }
+
+            var movieGenreVM = new StudentGenreViewModel
+            {
+                DiaChi = new SelectList(await genreQuery.Distinct().ToListAsync()),
+                Students = await students.ToListAsync()
+            };
+
+            return View(movieGenreVM);
         }
 
         // GET: Students/Details/5
@@ -63,7 +78,7 @@ namespace demo.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdStudent,StudentName,NamSinh,DiaChi")] Student student)
+        public async Task<IActionResult> Create([Bind("IdStudent,StudentName,NamSinh,DiaChi,Email")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +110,7 @@ namespace demo.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdStudent,StudentName,NamSinh,DiaChi")] Student student)
+        public async Task<IActionResult> Edit(int id, [Bind("IdStudent,StudentName,NamSinh,DiaChi,Email")] Student student)
         {
             if (id != student.IdStudent)
             {

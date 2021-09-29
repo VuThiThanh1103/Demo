@@ -43,6 +43,11 @@ namespace demo.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("DiaChi")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Email")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("NamSinh")

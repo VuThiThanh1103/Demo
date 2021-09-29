@@ -1,12 +1,15 @@
-@model IEnumerable<MvcStudent.Models.Student>
+@model MvcStudent.Models.StudentGenreViewModel
 
 @{
     ViewData["Title"] = "Index";
 }
 
 <h2>Học Sinh</h2>
-<form asp-controller="Students" asp-action="Index">
+<form asp-controller="Students" asp-action="Index" method="get">
     <p>
+        <select asp-for="StudentGenre" asp-items="Model.DiaChi">
+            <option value="">Tất Cả</option>
+        </select>
         Tìm kiếm: <input type="text" name="SearchString" />
         <input type="submit" value="Done" />
     </p>
@@ -29,29 +32,35 @@
             <th>
                 <label>Địa Chỉ</label>
             </th>
+            <th>
+                <label>Email</label>
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdStudent)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StudentName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NamSinh)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DiaChi)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdStudent">Sửa</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdStudent">Xóa</a>
-            </td>
-        </tr>
-}
+    @foreach (var item in Model.Students) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdStudent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NamSinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiaChi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdStudent">Sửa</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdStudent">Xóa</a>
+                </td>
+            </tr>
+    }
     </tbody>
 </table>
