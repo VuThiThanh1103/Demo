@@ -55,10 +55,21 @@ namespace MvcStudent.Models
                         NamSinh = DateTime.Parse("1999-01-05"),
                         DiaChi = "Ninh Bình",
                         Email  = "tiendat@gmail.com"
+                    },
+
+                     new Student
+                    {
+                        IdStudent = 09755,
+                        StudentName ="Phạm Tiến Đạt",
+                        NamSinh = DateTime.Parse("1999-01-05"),
+                        DiaChi = "Ninh Bình",
+                        Email  = "tiendat@gmail.com"
                     }
                 );
                 context.SaveChanges();
+                // Look for any movies. 
             }
         }
     }
+    
 }
